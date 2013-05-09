@@ -5,7 +5,6 @@
 		}
 
 		extract($_REQUEST);
-		echo $handler;
 		if($handler != "/"){
 
 			$handler = ltrim($handler, "/");
@@ -27,6 +26,11 @@
 			</head>
 			<body>
 				<h1>Hooray!</h1>
+				<p>
+					Soon, you'll be able to create your own controllers, for now, try viewing one of these:
+					<a href="/customerController">Customers</a>
+					<a href="/productController">Products</a>
+				</p>
 			</body>
 			</html>
 			<?php

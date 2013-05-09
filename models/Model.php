@@ -1,18 +1,26 @@
 <?php
-	require '../config.php';
+	// require 'config.php';
+	global $hostname = 'localhost';
+	global $username = 'root';
+	global $password = 'passwordx';
+	global $database = 'northwind';
 
 	class DB_QUERY {
 	
-		function connect($hostname, $username, $password) {
-			return mysql_connect($host, $username, $password);
+		function connect() {
+			return mysql_connect($hostname, $username, $password);
 		}
 
-		function db_select($database) {
-			return mysql_select_db($database));
+		function db_select() {
+			return mysql_select_db($database);
 		}
 
-		function query($query) {
-			return mysql_query($query);
+		function query($table, $scope) {
+			if($scope != 'all'){
+				return mysql_query("Select * from $table where ".trim($table)."id='$scope'");
+			} else {
+				return mysql_query("Select * from $table");			
+			}
 		}
 	}
 ?>

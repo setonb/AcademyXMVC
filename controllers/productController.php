@@ -3,17 +3,20 @@
 
 	class productController extends Controller {
 
-
 		function get($getParam) {
+
 			$object = new DB_QUERY();
 			$object->connect();
 			$object->db_select();
-			if(preg_match('/(?P<digit>\d+)/', $getParam)){
-				$result = $object->query("Select * from products where productid=$getParam;");
+			$table = 'products';
+
+			if($getParam !== 'all'){
+				$result = $object->query($table, $getParam);
 			} else {
 
-				$result = $object->query("Select * from products;");
+				$result = $object->query($table, 'all');
 			}
+
 			echo "<table>";
 			while ($row = mysql_fetch_row($result)) {
 				echo "<tr>";
