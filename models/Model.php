@@ -1,21 +1,18 @@
 <?php
+	require '../config.php';
+
 	class DB_QUERY {
-		// $hostname = "localhost";
-		// $username = "root";
-		// $password = "passwordx";
-		// $database = "northwind";
-
 	
-		function connect() {
-			return mysql_connect("localhost", "root", "passwordx");
+		function connect($hostname, $username, $password) {
+			return mysql_connect($host, $username, $password);
 		}
 
-		function db_select() {
-			return mysql_select_db("northwind");
+		function db_select($database) {
+			return mysql_select_db($database));
 		}
 
-		function query($string) {
-			return mysql_query($string);
+		function query($query) {
+			return mysql_query($query);
 		}
 	}
 ?>
