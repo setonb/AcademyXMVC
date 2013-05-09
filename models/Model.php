@@ -1,18 +1,18 @@
 <?php
-	// require 'config.php';
-	global $hostname = 'localhost';
-	global $username = 'root';
-	global $password = 'passwordx';
-	global $database = 'northwind';
 
 	class DB_QUERY {
-	
+		public $hostname = 'localhost';
+		public $username = 'root';
+		public $password = 'passwordx';
+		public $database = 'northwind';
+
+
 		function connect() {
-			return mysql_connect($hostname, $username, $password);
+			return mysql_connect($this->hostname, $this->username, $this->password);
 		}
 
 		function db_select() {
-			return mysql_select_db($database);
+			return mysql_select_db($this->database);
 		}
 
 		function query($table, $scope) {

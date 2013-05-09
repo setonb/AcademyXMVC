@@ -3,16 +3,18 @@
 
 	class customerController extends Controller {
 
+	function get($getParam) {
 
-		function get($getParam) {
 			$object = new DB_QUERY();
 			$object->connect();
 			$object->db_select();
+			$table = 'customers';
+
 			if($getParam !== 'all'){
-				$result = $object->query("Select * from customers where customerid='$getParam';");
+				$result = $object->query($table, $getParam);
 			} else {
 
-				$result = $object->query("Select * from customers;");
+				$result = $object->query($table, 'all');
 			}
 
 			echo "<table>";
